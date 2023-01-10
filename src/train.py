@@ -131,7 +131,7 @@ def train_model(settings, hyp_params, train_loader, valid_loader, test_loader):
                                  criterion_nig(mu_s_i, v_s_i, alpha_s_i, beta_s_i, eval_attr, hyp_params)
                     combined_loss = raw_loss
                     combined_loss.backward()
-            elif hyp_params.model == 'MOE_pseudo':
+            elif hyp_params.model == 'Comb':
                 if batch_chunk > 1:
                     raw_loss = combined_loss = 0
                     text_chunks = text.chunk(batch_chunk, dim=0)
@@ -277,7 +277,7 @@ def train_model(settings, hyp_params, train_loader, valid_loader, test_loader):
                         moe_nig(mu_l_i, v_l_i, alpha_l_i, beta_l_i, mu_a_i, v_a_i, alpha_a_i, beta_a_i)
                     preds, v_s_i, alpha_s_i, beta_s_i = \
                         moe_nig(mu_s_i, v_s_i, alpha_s_i, beta_s_i, mu_v_i, v_v_i, alpha_v_i, beta_v_i)
-                if hyp_params.model == 'MOE_pseudo':
+                if hyp_params.model == 'Comb':
                     mu_l_i, v_l_i, alpha_l_i, beta_l_i, mu_a_i, v_a_i, alpha_a_i, beta_a_i, mu_v_i, v_v_i, \
                     alpha_v_i, beta_v_i, mu_c_i, v_c_i, alpha_c_i, beta_c_i = net(text, audio, vision)
                     mu_s_i, v_s_i, alpha_s_i, beta_s_i = \
