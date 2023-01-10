@@ -10,8 +10,8 @@ parser = argparse.ArgumentParser(description='MOSEI Sentiment Analysis')
 parser.add_argument('-f', default='', type=str)
 
 # Fixed
-parser.add_argument('--model', type=str, default='MOE_pseudo',
-                    help='name of the model to use (GAUSSIAN, BASE, MOE, NIG, MOE_pseudo etc.)')
+parser.add_argument('--model', type=str, default='Comb',
+                    help='name of the model to use (GAUSSIAN, BASE, MOE, NIG, Comb etc.)')
 parser.add_argument('--risk', type=float, default=0.01,
                     help='lambda')
 parser.add_argument('--num_epochs', type=int, default=40,
