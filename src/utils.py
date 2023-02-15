@@ -55,7 +55,7 @@ def criterion_nig(u, la, alpha, beta, y, hyp_params):
     # our loss function
     om = 2 * beta * (1 + la)
     loss = sum(
-        0.5 * torch.log(np.pi / la) - alpha * torch.log(om) + (alpha + 0.5) * torch.log(la * (u - y) ** 2 + om)) / len(u)
+        0.5 * torch.log(np.pi / la) - alpha * torch.log(om) + (alpha + 0.5) * torch.log(la * (u - y) ** 2 + om) + torch.lgamma(alpha) - torch.lgamma(alpha+0.5)) / len(u)
     lossr = hyp_params.risk * sum(torch.abs(u - y) * (2 * la + alpha)) / len(u)
     loss = loss + lossr
     return loss
