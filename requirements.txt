@@ -1,0 +1,7 @@
+pytorch>=1.0.2
+matplotlib>=3.3.4	
+numpy>=1.19.2	
+python>=3.7.10	
+scipy>=1.6.1	
+vs2015_runtime>=14.27.29016	
+xlrd>=1.2.0
